@@ -1,0 +1,23 @@
+### add header test
+GET localhost:8080/external/my
+Content-Type: application/json
+x-access-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtYW5hZ2VyIjpmYWxzZSwiaXNzIjoiZXBpc29kZSIsImNsaWVudCI6ImVwaXNvZGUyIiwiaWQiOiJvcUdGSDVqVzRiZjZpdHVtb0NFbjI5MDg1IiwiZXhwIjoxNjIzMTE5NTI5LCJzZXJ2aWNlTWFuYWdlciI6ZmFsc2V9.3VHvoLg_O1dlZ1e27eNl4af5Bem06lqWyxsMjuQmd2g
+
+
+### 인증번호 요청
+POST localhost:8080/customer/signin/verification/number
+Content-Type: application/json
+x-access-token: accesstoken
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+### 인증토큰 재발급
+POST localhost:8080/auth/accesstoken
+Content-Type: application/json
+
+{
+  "refreshToken": "999"
+}

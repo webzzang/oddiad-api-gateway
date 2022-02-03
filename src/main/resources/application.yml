@@ -1,0 +1,31 @@
+server:
+  port: 8080
+  shutdown: graceful
+#  ssl:
+#    enabled: true
+#    key-alias: oddiad-keystore
+#    key-store: /home/centos/api/gateway/oddiad-keystore.p12
+#    key-store-password: oddiad1@#
+#    key-store-type: PKCS12
+
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        wiretap: true
+      default-filters:
+        - name: GlobalFilter
+          args: # 이부분이 Config 의 프로퍼티에 매칭이 된다.
+            baseMessage: oddiad
+            preLogger: true
+            postLogger: true
+      routes:
+        - id: user
+          uri: http://localhost:28090/
+          predicates:
+            - Path=/user/**
+        - id: manager
+          uri: http://localhost:28080/
+          predicates:
+            - Path=/admin/**
+

@@ -1,0 +1,57 @@
+19:27:58 INFO  - Starting ApiGatewayApplication using Java 11.0.9.1 on DESKTOP-TH4EGF3 with PID 32408 (C:\Users\jisoo\repository\exflyer\api-gateway\target\classes started by jisoo in C:\Users\jisoo\repository\exflyer\api-gateway)
+19:27:58 INFO  - No active profile set, falling back to default profiles: default
+19:27:58 INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+19:27:58 INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+19:27:59 INFO  - BeanFactory id=4e18955d-b138-3a9d-a523-81f4ab8a4487
+19:27:59 WARN  - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start reactive web server; nested exception is java.lang.IllegalStateException: java.lang.IllegalStateException: org.springframework.boot.web.server.WebServerException: Could not load key store '/home/centos/api/gateway/oddiad-keystore.p12'
+19:27:59 INFO  - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+19:27:59 ERROR - Application run failed
+org.springframework.context.ApplicationContextException: Unable to start reactive web server; nested exception is java.lang.IllegalStateException: java.lang.IllegalStateException: org.springframework.boot.web.server.WebServerException: Could not load key store '/home/centos/api/gateway/oddiad-keystore.p12'
+	at org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContext.onRefresh(ReactiveWebServerApplicationContext.java:81)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:576)
+	at org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContext.refresh(ReactiveWebServerApplicationContext.java:63)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.exflyer.oddi.apigateway.ApiGatewayApplication.main(ApiGatewayApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.lang.IllegalStateException: java.lang.IllegalStateException: org.springframework.boot.web.server.WebServerException: Could not load key store '/home/centos/api/gateway/oddiad-keystore.p12'
+	at org.springframework.boot.web.embedded.netty.SslServerCustomizer.apply(SslServerCustomizer.java:85)
+	at org.springframework.boot.web.embedded.netty.NettyReactiveWebServerFactory.createHttpServer(NettyReactiveWebServerFactory.java:171)
+	at org.springframework.boot.web.embedded.netty.NettyReactiveWebServerFactory.getWebServer(NettyReactiveWebServerFactory.java:70)
+	at org.springframework.boot.web.reactive.context.WebServerManager.<init>(WebServerManager.java:49)
+	at org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContext.createWebServer(ReactiveWebServerApplicationContext.java:93)
+	at org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContext.onRefresh(ReactiveWebServerApplicationContext.java:78)
+	... 14 common frames omitted
+Caused by: java.lang.IllegalStateException: org.springframework.boot.web.server.WebServerException: Could not load key store '/home/centos/api/gateway/oddiad-keystore.p12'
+	at org.springframework.boot.web.embedded.netty.SslServerCustomizer.getKeyManagerFactory(SslServerCustomizer.java:123)
+	at org.springframework.boot.web.embedded.netty.SslServerCustomizer.getContextBuilder(SslServerCustomizer.java:90)
+	at org.springframework.boot.web.embedded.netty.SslServerCustomizer.lambda$apply$0(SslServerCustomizer.java:78)
+	at reactor.netty.http.server.HttpServer.secure(HttpServer.java:692)
+	at org.springframework.boot.web.embedded.netty.SslServerCustomizer.apply(SslServerCustomizer.java:77)
+	... 19 common frames omitted
+Caused by: org.springframework.boot.web.server.WebServerException: Could not load key store '/home/centos/api/gateway/oddiad-keystore.p12'
+	at org.springframework.boot.web.embedded.netty.SslServerCustomizer.loadStore(SslServerCustomizer.java:177)
+	at org.springframework.boot.web.embedded.netty.SslServerCustomizer.loadKeyStore(SslServerCustomizer.java:158)
+	at org.springframework.boot.web.embedded.netty.SslServerCustomizer.getKeyStore(SslServerCustomizer.java:131)
+	at org.springframework.boot.web.embedded.netty.SslServerCustomizer.getKeyManagerFactory(SslServerCustomizer.java:109)
+	... 23 common frames omitted
+Caused by: java.io.FileNotFoundException: C:\home\centos\api\gateway\oddiad-keystore.p12 (지정된 경로를 찾을 수 없습니다)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:86)
+	at java.base/sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:184)
+	at java.base/java.net.URL.openStream(URL.java:1140)
+	at org.springframework.boot.web.embedded.netty.SslServerCustomizer.loadStore(SslServerCustomizer.java:173)
+	... 26 common frames omitted

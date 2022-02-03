@@ -1,0 +1,2 @@
+OddiAD Gateway
+:spring-cloud-starter-gateway : 2.4.3
